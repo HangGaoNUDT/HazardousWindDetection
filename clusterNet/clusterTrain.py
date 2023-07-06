@@ -53,7 +53,6 @@ wtws_acc_2017 = wtws_acc_2017 / pilot_corridor.shape[0]
 aware_acc_2017 = aware_acc_2017 / pilot_corridor.shape[0]
 wtws_acc_test = wtws_acc_test / pilot_test.shape[0]
 aware_acc_test = aware_acc_test / pilot_test.shape[0]
-
 DATA_NUM = unlabeled_data.shape[0]
 still_index = np.argsort(np.max(unlabeled_data,axis = 1)-np.min(unlabeled_data,axis = 1))
 std = preprocessing.StandardScaler()
@@ -234,7 +233,7 @@ for cluster_dim in [4]:
         '''Parameter-initialization by SAE'''
         ae_ckpt_path = os.path.join('model_autoencoder.ckpt')
         saver.restore(sess, ae_ckpt_path)
-        # pre_train_steps = 10000
+        # pre_train_steps = 20000
         # for i_step_pre in range(pre_train_steps):
         #     index_list = [i for i in range(DATA_NUM)]
         #     idxs = random.sample(index_list, BATCH_SIZE)
@@ -250,8 +249,6 @@ for cluster_dim in [4]:
         sdec_ckpt_path = os.path.join('model_supervise.ckpt')
         # saver.restore(sess,sdec_ckpt_path)
         train_steps = 2001
-        ACC_XUJING = np.zeros((train_steps, 3))
-
         encoded_, decoded_, cluster_features_, q_, pred_, T_, dist_ = sess.run([clusternn.encoded, clusternn.decoded,
                                                                                 clusternn.cluster_features, clusternn.q,
                                                                                 clusternn.pred, clusternn.T,
@@ -308,12 +305,10 @@ for cluster_dim in [4]:
                       f'calm loss = {true_loss_}, pilot loss = {pilot_loss_}, max interval = {max_interval_}, '
                       f'pilot acc = {acc}, xujing = {xujing}')
                 print(f'my method train acc: {acc}, pta: {1-xujing}')
-                ACC_XUJING[i_step, 0] = acc
-                ACC_XUJING[i_step, 1] = 1-xujing
                 hazard_id = np.argmax(pilot_cluster_nums)
                 pilot_encoded_test,pilot_pred_test, cluster_features_test = _test_cluster(clusternn, hazard_id)
                 test_acc = np.sum(pilot_pred_test == hazard_id) / pilot_pred_test.shape[0]
-                ACC_XUJING[i_step, 2] = test_acc
+
         # saver.save(sess, sdec_ckpt_path)
     sess.close()
 
