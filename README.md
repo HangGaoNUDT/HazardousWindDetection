@@ -6,3 +6,14 @@ This package contains the parameter-initializing, training, evaluating and featu
 
 Please note that the entire dataset used for the training and test  are available from the corresponding
 author upon reasonable request. 
+
+## Requirements
+matplotlib==2.2.2
+
+numpy==1.21.6
+
+scikit_learn==1.0.2
+
+scipy==1.7.3
+
+tensorflow==2.6.0
