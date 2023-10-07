@@ -3,5 +3,5 @@ The model is established in the "ClusterNN.py";
 "_seasonal_occurrence_prob.ipynb" shows the seasonal characteristics obtained from the 21-year pilot reports and the hazard factor, respectively. The correlation coefficient is obtained.
 
 "ablation_study_hazardous_label_num.ipynb" analyzes the impact of the number of the hazardous labels in the training dataset on the detection performance (Supplementary Fig. 11).
-
+"ablation_study_linear_layer.ipynb" analyzes the impact of the additional linear layer on the detection performance (Supplementary Fig. 12 and 13).
 A comparative analysis is conducted in the "Comparison" folder, where the detection performance of this model, CatB, IForest, and XGOB are compared.
