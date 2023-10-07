@@ -1,5 +1,0 @@
-Example contains:
-
-Performance_evaluation---------------------------Performance evaluation in the training process. 
-tools--------------------------------------------Data import
-clusterTrain-------------------------------------Train the cluster network with semi-supervised learning
