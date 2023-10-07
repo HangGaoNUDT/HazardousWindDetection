@@ -1,3 +1,5 @@
+"Data_import.py" and "tools.py" are used to import data.
+
 The model is established in the "ClusterNN.py";
 
 "ClusterNN_without_linear_layer.py" is a model where the additional linear layer has been neglected.
