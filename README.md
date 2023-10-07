@@ -9,8 +9,7 @@ author upon reasonable request.
 
 The "ClustrNN" folder contains the procedures of data import, model establish, and results display.
 
-The "Data" folder listed some examples of the dataset. The wind records used for  training and test   are available from the corresponding
-author upon reasonable request.
+The "Data" folder listed some examples of the dataset.
 
 ## Requirements
 matplotlib==2.2.2
