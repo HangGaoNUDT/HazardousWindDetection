@@ -21,8 +21,8 @@ from ClusterNN import cluster_NN,svm_classifier
 # random.seed(1)
 #
 Data = data_frame()
-encoded_dims = [1,2,3]#4,4,4,4,4,4,7,10,20,
-cluster_dims = [1,2,3]#1,2,3,4,5,6,7,10,20,
+encoded_dims = [4,10,20,30]
+cluster_dims = [4,10,20,30]
 for dim_iter in range(len(encoded_dims)):
     tf.set_random_seed(1)
     np.random.seed(1)
