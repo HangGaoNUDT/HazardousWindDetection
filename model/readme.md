@@ -1,4 +1,4 @@
-This filefoler mainly corresponds to the Figures in the main text.
+This filefoler mainly corresponds to the Figures in the main text and supplementary information.
 
 'ClusterNN.py'--------------------------establish the proposed model
 
