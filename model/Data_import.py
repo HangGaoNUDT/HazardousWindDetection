@@ -33,17 +33,17 @@ class data_frame(object):
         self.pilot_train_v_r = np.vstack((pilot_corridor_2017,pilot_corridor_2018))  #
         self.pilot_test_v_r = np.vstack((pilot_corridor_2019, pilot_corridor_2020))  #
         
-        index = [9252, 28189, 47258, 51323, 51346, 51518, 55304, 55310, 57512, 57580, \
+        # index = [9252, 28189, 47258, 51323, 51346, 51518, 55304, 55310, 57512, 57580, \
                  60251, 60255, 61674, 61815, 66826, 66879, 94804, 104019, 104041, 104074, \
                  110114, 112101, 120912, 121586, 121613, 121618, 137931, 137933, 182797, \
                     190478, 191201, 194766, 194867, 194869, 194891, 194893, 194899, 194902, 194958]
-        # index = []
-        # for i in np.arange(pilot_corridor_2017.shape[0]):
-        #     for j in np.arange(all_corridor.shape[0]):
-        #         if (pilot_corridor_2017[i,::]==all_corridor[j,::]).all():
-        #             index.append(j)
-        #             break
-        # print(index)
+        index = []
+        for i in np.arange(pilot_corridor_2017.shape[0]):
+            for j in np.arange(all_corridor.shape[0]):
+                if (pilot_corridor_2017[i,::]==all_corridor[j,::]).all():
+                    index.append(j)
+                    break
+        print(index)
         all_corridor_calm = np.delete(all_corridor,index,axis = 0)
         self.unlabeled_data_v_r_calm = all_corridor_calm
 
@@ -59,18 +59,18 @@ class data_frame(object):
         pilot_corridor_2018, pilot_time_2018, pilot_wtws_2018, pilot_aware_2018,pilot_ws_mags_2018,pilot_turb_mags_2018 = pilot_corridor_read(2018, loc=4)
         pilot_corridor_2019, pilot_time_2019, pilot_wtws_2019, pilot_aware_2019,pilot_ws_mags_2019,pilot_turb_mags_2019 = pilot_corridor_read(2019, loc=4)
         pilot_corridor_2020, pilot_time_2020, pilot_wtws_2020, pilot_aware_2020,pilot_ws_mags_2020,pilot_turb_mags_2020 = pilot_corridor_read(2020, loc=4)
-        index = [50899, 52917, 52922, 57466, 57468, 57469, 57473, 57481, 57487, 57494, 57567,\
+        # index = [50899, 52917, 52922, 57466, 57468, 57469, 57473, 57481, 57487, 57494, 57567,\
                   57589, 57594, 59499, 59539, 59545, 60879, 61328, 64786, 65007, 65017, 65235,\
                       68220, 74605, 74606, 74617, 74755, 84735, 84739, 84749, 84752, 84755, 84757, \
                         84761, 84768, 89925, 90814, 90826, 111674, 111730, 112537, 112562, 112614, \
                             112628, 117885, 119556, 128684, 131695, 137191, 156028, 156030, 164379,\
                                   186482, 194004, 227853, 228066]
-        # for i in np.arange(pilot_corridor_2017.shape[0]):
-        #     for j in np.arange(all_corridor.shape[0]):
-        #         if (pilot_corridor_2017[i,::]==all_corridor[j,::]).all():
-        #             index.append(j)
-        #             break
-        # print(index)
+        for i in np.arange(pilot_corridor_2017.shape[0]):
+            for j in np.arange(all_corridor.shape[0]):
+                if (pilot_corridor_2017[i,::]==all_corridor[j,::]).all():
+                    index.append(j)
+                    break
+        print(index)
         all_corridor_calm = np.delete(all_corridor,index,axis = 0)
         self.pilot_train_v_r = np.vstack((pilot_corridor_2017,pilot_corridor_2018,self.pilot_train_v_r))#
         self.pilot_test_v_r = np.vstack((pilot_corridor_2019,pilot_corridor_2020,self.pilot_test_v_r))#
@@ -121,14 +121,14 @@ class data_frame(object):
         all_corridor_2018_3,_ = all_data_read_by_month(2018, month = 10)
         all_corridor_2018_4,_ = all_data_read_by_month(2018, month = 11)
         all_calm_train = np.vstack((all_corridor_2017_3,all_corridor_2017_4,all_corridor_2018_3,all_corridor_2018_4))
-        index = [20489, 28011, 84616, 84829, 133615, 3215, 3938, 7503, 7604, 7606, 7628, 7630, 7636, 7639, 7695, 155180]
-        # index = []
-        # for i in np.arange(self.pilot_train_v_r.shape[0]):
-        #     for j in np.arange(all_calm_train.shape[0]):
-        #         if (self.pilot_train_v_r[i,::]==all_calm_train[j,::]).all():
-        #             index.append(j)
-        #             break
-        # print(index)
+        # index = [20489, 28011, 84616, 84829, 133615, 3215, 3938, 7503, 7604, 7606, 7628, 7630, 7636, 7639, 7695, 155180]
+        index = []
+        for i in np.arange(self.pilot_train_v_r.shape[0]):
+            for j in np.arange(all_calm_train.shape[0]):
+                if (self.pilot_train_v_r[i,::]==all_calm_train[j,::]).all():
+                    index.append(j)
+                    break
+        print(index)
         all_calm_train = np.delete(all_calm_train,index,axis = 0)
         # mean_all_train = np.mean(np.abs(self.unlabeled_data_v_r_calm),axis = 1)
         # calm_train_idxs = np.where(mean_all_train<5)[0]
@@ -149,14 +149,14 @@ class data_frame(object):
         self.calm_name_test = np.hstack((#all_corridor_2018_3,all_corridor_2018_4,
                                        name_month_2019_3,name_month_2019_4,
                                        name_month_2020_3,name_month_2020_4))
-        index = [189272]
-        # index = []
-        # for i in np.arange(self.pilot_test_v_r.shape[0]):
-        #     for j in np.arange(self.all_corridor_test.shape[0]):
-        #         if (self.pilot_test_v_r[i,::]==self.all_corridor_test[j,::]).all():
-        #             index.append(j)
-        #             break
-        # print(index)
+        # index = [189272]
+        index = []
+        for i in np.arange(self.pilot_test_v_r.shape[0]):
+            for j in np.arange(self.all_corridor_test.shape[0]):
+                if (self.pilot_test_v_r[i,::]==self.all_corridor_test[j,::]).all():
+                    index.append(j)
+                    break
+        print(index)
         self.all_corridor_test = np.delete(self.all_corridor_test,index,axis = 0)
         self.calm_name_test = np.delete(self.calm_name_test,index,axis = 0)
         all_indexes = [i for i in range(self.all_corridor_test.shape[0])]
