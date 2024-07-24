@@ -5,19 +5,15 @@ The cluster network consists of the encoded layers within a stacked autoencoder 
 This package contains the parameter-initializing, training, evaluating and feature-space visualizing process of the cluster network, as well as the data required for network training.
 
 
-The "ClustrNN" folder contains the procedures of data import, model establish, and results display.
+The "model" folder contains the procedures of data import, model establish, and results display.
 
-The "Data" folder listed some examples of the dataset.
+The "Data" folder provides the data used in this paper.
 
 Please note that the entire dataset used for the training and test  are available from the corresponding
 author upon reasonable request. 
 ## Requirements
-matplotlib==2.2.2
-
-numpy==1.21.6
-
-scikit_learn==1.0.2
-
-scipy==1.7.3
-
-tensorflow==2.6.0
+matplotlib
+numpy
+scikit_learn
+scipy
+tensorflow
